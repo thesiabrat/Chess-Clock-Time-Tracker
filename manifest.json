@@ -1,0 +1,11 @@
+{
+  "name": "Time Tracker",
+  "short_name": "Timer",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#12141c",
+  "theme_color": "#12141c",
+  "orientation": "portrait",
+  "icons": []
+}

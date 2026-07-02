@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#12141c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Timer">
+<title>Time Tracker</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- TIMER VIEW -->
+  <section id="view-timer" class="view active">
+    <header class="now-card" id="nowCard">
+      <div class="now-label" id="nowLabel">Nothing running</div>
+      <div class="now-clock" id="nowClock">00:00:00</div>
+      <div class="now-actions">
+        <button id="pauseBtn" class="pause-btn hidden" aria-label="Pause">Pause</button>
+        <button id="stopBtn" class="stop-btn hidden" aria-label="Stop">Stop</button>
+      </div>
+    </header>
+
+    <div class="cat-grid" id="catGrid"></div>
+
+    <div class="grid-actions">
+      <button id="addCatBtn" class="add-cat-btn">+ Add category</button>
+      <button id="editModeBtn" class="edit-mode-btn">Edit</button>
+    </div>
+  </section>
+
+  <!-- HISTORY VIEW -->
+  <section id="view-history" class="view">
+    <div class="history-header">
+      <h1>History</h1>
+      <div class="history-header-actions">
+        <button id="exportBtn" class="link-btn">Export CSV</button>
+        <button id="clearHistoryBtn" class="link-btn danger-link">Clear all history</button>
+      </div>
+    </div>
+    <div id="historyList" class="history-list"></div>
+  </section>
+
+  <!-- NAV -->
+  <nav class="tabbar">
+    <button class="tab active" data-view="timer">
+      <span class="tab-icon">⏱</span><span>Timer</span>
+    </button>
+    <button class="tab" data-view="history">
+      <span class="tab-icon">📊</span><span>History</span>
+    </button>
+  </nav>
+
+</div>
+
+<!-- ADD/EDIT CATEGORY MODAL -->
+<div id="catModal" class="modal-backdrop">
+  <div class="modal">
+    <h2 id="catModalTitle">New category</h2>
+    <input id="catNameInput" type="text" placeholder="Category name" maxlength="30" autocomplete="off">
+    <div class="color-row" id="colorRow"></div>
+    <div class="modal-actions">
+      <button id="catDeleteBtn" class="modal-btn danger hidden">Archive</button>
+      <div class="modal-actions-right">
+        <button id="catCancelBtn" class="modal-btn">Cancel</button>
+        <button id="catSaveBtn" class="modal-btn primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
