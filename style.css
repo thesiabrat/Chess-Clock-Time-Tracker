@@ -38,6 +38,20 @@ html, body {
 }
 .view.active { display: flex; flex-direction: column; }
 
+/* WALL CLOCK */
+.wall-clock {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 2px 4px 12px;
+  color: var(--text-dim);
+  font-size: 13px;
+  font-weight: 600;
+}
+.wall-clock #wallTime {
+  font-variant-numeric: tabular-nums;
+}
+
 /* NOW CARD */
 .now-card {
   background: linear-gradient(155deg, var(--card-2), var(--card));

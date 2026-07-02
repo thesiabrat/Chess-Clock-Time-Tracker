@@ -189,6 +189,8 @@
   // ---------- rendering ----------
   var els = {};
   function cacheEls() {
+    els.wallDate = document.getElementById("wallDate");
+    els.wallTime = document.getElementById("wallTime");
     els.nowLabel = document.getElementById("nowLabel");
     els.nowClock = document.getElementById("nowClock");
     els.nowCard = document.getElementById("nowCard");
@@ -211,7 +213,14 @@
     els.catDeleteBtn = document.getElementById("catDeleteBtn");
   }
 
+  function renderWallClock() {
+    var now = new Date();
+    els.wallDate.textContent = now.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+    els.wallTime.textContent = now.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+  }
+
   function renderNow() {
+    renderWallClock();
     var open = getOpenEvent();
     if (open) {
       var cat = catById(open.categoryId);
